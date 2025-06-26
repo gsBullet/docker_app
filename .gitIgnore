@@ -1,7 +1,5 @@
-/node_modules
+
 node_modules
-/.env
-/package-lock.json
 .env
 /.env.development.local
 /.env.test.local
@@ -9,11 +7,8 @@ node_modules
 /.next
 /.nuxt
 /dist
-/.cache  
+.cache  
 .gitIgnore
-/.gitIgnore
-.DS_Store
-*.log
-*.swp
+
 
 package-lock.json
