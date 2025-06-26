@@ -16,16 +16,19 @@ app.use(express.json());
 // app.use(bodyParser.json());
 // app.use(formData.parse());
 // Connect to MongoDB
-mongoose
-  .connect(process.env.MONGODB_URL,{})
-  .then((a) => {
-    console.log("Connected to MongoDB",a.connection.name);
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  })
+// mongoose
+//   .connect(process.env.MONGODB_URL,{})
+//   .then((a) => {
+//     console.log("Connected to MongoDB",a.connection.name);
+//     app.listen(port, () => {
+//       console.log(`Server is running on port ${port}`);
+//     });
+//   })
 
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-    process.exit(1); // Exit the process if connection fails
-  });
+//   .catch((err) => {
+//     console.error("Error connecting to MongoDB:", err);
+//     process.exit(1); // Exit the process if connection fails
+//   });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

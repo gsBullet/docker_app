@@ -10,3 +10,10 @@ COPY . .
 EXPOSE 6001
 
 CMD ["npm", "start"]
+
+# docker build -t basic1 .
+
+    # -t = unique tag name first_docker_app:v1,v2,v3 .... etc
+    # . = current directory or where the dockerfile is located and others resources located
+
+# docker run -p 8001:6001 first_docker_app:v1
