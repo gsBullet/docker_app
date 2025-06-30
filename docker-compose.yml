@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:6001"
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017/DOCKER_TEST
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

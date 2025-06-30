@@ -1,0 +1,32 @@
+
+FROM node:22.16.0
+
+WORKDIR /var/www/basic_node_app
+
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 6001
+
+CMD ["npm", "start"]
+
+
+
+
+
+
+
+
+
+
+# docker network create basic_node_app_network
+
+# docker run --name basic_node_app_mongodb_container --network  basic_node_app_network -p 28017:27017 -d mongo
+
+
+# docker build -t basic_node_app:v2 .
+
+
+# docker run --name basic_node_app_v2_container --network  basic_node_app_network -p 8001:6001 -d basic_node_app:v2

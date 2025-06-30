@@ -11,9 +11,22 @@ EXPOSE 6001
 
 CMD ["npm", "start"]
 
-# docker build -t basic1 .
+# docker build -t basic_node_app .
 
-    # -t = unique tag name first_docker_app:v1,v2,v3 .... etc
+    # -t = unique tag name basic_node_app:v1,v2,v3 .... etc
     # . = current directory or where the dockerfile is located and others resources located
 
-# docker run -p 8001:6001 first_docker_app:v1
+# docker run -p 8001:6001 basic_node_app:v1
+# docker process                          : docker ps
+# docker process with all containers      : docker ps -a
+# docker inspect <container_id>            : docker inspect <container_id>
+# docker logs <container_id>               : docker logs <container_id>
+# docker exec -it <container_id> bash      : docker exec -it <container_id> bash
+
+# docker stop <container_id>
+# docker rm <container_id> 
+
+# docker rmi <image_id>     # docker rmi -f <image_id>  # force remove image
+# docker rmi -f $(docker images -a -q)  # remove all images
+# docker rmi -f $(docker images -a -q)  # remove all images
+
