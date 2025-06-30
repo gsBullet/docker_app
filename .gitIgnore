@@ -1,12 +1,7 @@
 
 node_modules
 .env
-/.env.development.local
-/.env.test.local
-/.env.production.local
-/.next
-/.nuxt
-/dist
+uploads
 .cache  
 .gitIgnore
 
