@@ -1,9 +1,14 @@
 
 node_modules
+/node_modules
 .env
+/.env
 uploads
+/uploads
 .cache  
+/.cache
 .gitIgnore
+
 
 
 package-lock.json
