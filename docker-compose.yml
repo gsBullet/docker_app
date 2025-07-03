@@ -1,21 +1,37 @@
+
 version: '3.8'
 
 services:
   app:
-    build: .
+    build: .  # Build from Dockerfile in current directory
+    image: basic_node_app:v3
+    container_name: basic_node_app_v3_container
     ports:
-      - "3000:6001"
-    depends_on:
-      - mongo
-    environment:
-      - MONGODB_URL=mongodb://mongo:27017/DOCKER_TEST
-
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27019:27017"
+      - "8002:6001"  # Host:Container port mapping
     volumes:
-      - mongo_data:/data/db
+      - ./uploads:/var/www/basic_node_app/uploads  # Bind mount for uploads
+    networks:
+      - basic_node_app_network
+    depends_on:
+      - mongodb  # Ensure MongoDB starts first
+    # Add environment variables if needed:
+    # environment:
+    #   - MONGO_URL=mongodb://mongodb:27017/mydb
+
+  mongodb:
+    image: mongo
+    container_name: basic_node_app_mongodb_container
+    ports:
+      - "28017:27017"  # Host:Container port mapping
+    networks:
+      - basic_node_app_network
+    # Add persistent storage for MongoDB data:
+    volumes:
+      - mongodb_data:/data/db
 
 volumes:
-  mongo_data:
+  mongodb_data:  # Named volume for MongoDB persistence
+
+networks:
+  basic_node_app_network:  # Custom network
+    driver: bridge

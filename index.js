@@ -9,7 +9,7 @@ const fs = require("fs");
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 6001;
+const port = process.env.PORT;
 
 const userModel = require("./model/userModel");
 
@@ -23,11 +23,15 @@ app.get("/", (req, res) => {
   res.send("Hello from Express and Mongoose!");
 });
 
+app.post("/create", async (req,res) => {
+  const users = await userModel.create(req.body);
+  return res.status(200).json(users);
+});
 app.get("/users", async (req, res) => {
   try {
     const users = await userModel.find();
     console.log("Users found:", users);
-    return res.status(200).json(users);
+    return res.status(200).json({ users });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
@@ -55,8 +59,8 @@ app.post("/upload", (req, res) => {
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URL, {})
-  .then(() => {
-    console.log("✅ Connected to MongoDB");
+  .then((a) => {
+    console.log("✅ Connected to MongoDB", a.connection.name);
     app.listen(port, () => {
       console.log(`🚀 Server is running on port http://localhost:${port}`);
     });

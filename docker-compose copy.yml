@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: basic_node_app_v3_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: basic_node_app:v3
+    ports:
+      - "8002:6001"
+    volumes:
+      - ./uploads:/var/www/basic_node_app/uploads
+    depends_on:
+      - mongodb
+    networks:
+      - basic_node_app_network
+
+  mongodb:
+    container_name: basic_node_app_mongodb_container
+    image: mongo
+    ports:
+      - "28017:27017"
+    networks:
+      - basic_node_app_network
+
+networks:
+  basic_node_app_network:
+    driver: bridge
