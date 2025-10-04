@@ -1,4 +1,4 @@
-FROM node: 14
+FROM node:14
 
 WORKDIR /var/www/basic1
 
@@ -11,7 +11,7 @@ EXPOSE 6001
 
 CMD ["npm", "start"]
 
-# docker build -t basic_node_app .
+# docker build -t basic_node_app:v1 .
 
     # -t = unique tag name basic_node_app:v1,v2,v3 .... etc
     # . = current directory or where the dockerfile is located and others resources located
