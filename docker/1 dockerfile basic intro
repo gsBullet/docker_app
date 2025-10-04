@@ -18,7 +18,12 @@ CMD ["npm", "start"]
 
 
 # docker run -p 8001:6001  basic_node_app:v1
+
+# docker run -p 8003:3000 -d --name my_node_app basic_node_app:v2
+
 # docker run -p 8001:6001 -d basic_node_app:v1
+
+
 # detach mode                             : -d
 # docker process                          : docker ps
 # docker process with all containers      : docker ps -a
