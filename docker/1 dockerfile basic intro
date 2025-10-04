@@ -16,6 +16,8 @@ CMD ["npm", "start"]
     # -t = unique tag name basic_node_app:v1,v2,v3 .... etc
     # . = current directory or where the dockerfile is located and others resources located
 
+
+# docker run -p 8001:6001  basic_node_app:v1
 # docker run -p 8001:6001 -d basic_node_app:v1
 # detach mode                             : -d
 # docker process                          : docker ps
