@@ -40,5 +40,5 @@ CMD ["npm", "start"]
 
 # docker container prune             : remove unused containers
 # docker image prune                 : remove unused images
-# docker systen prune -a             : remove all unused containers and images
+# docker system prune -a             : remove all unused containers and images
 
