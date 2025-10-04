@@ -38,3 +38,7 @@ CMD ["npm", "start"]
 # docker rmi -f $(docker images -a -q)  # remove all images
 # docker rmi -f $(docker images -a -q)  # remove all images
 
+# docker container prune             : remove unused containers
+# docker image prune                 : remove unused images
+# docker systen prune -a             : remove all unused containers and images
+
