@@ -19,7 +19,7 @@ CMD ["npm", "start"]
 
 
 
-
+# docker network ls           //To check what Docker networks exist on your system, you can use:
 
 # docker network create basic_node_app_network
 
